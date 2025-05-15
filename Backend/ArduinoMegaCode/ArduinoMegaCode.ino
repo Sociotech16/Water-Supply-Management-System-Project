@@ -1,4 +1,4 @@
-#include <SoftwareSerial.h>
+//#include <SoftwareSerial.h>
 
 //SoftwareSerial espSerial(19, 18); // RX, TX
 
@@ -93,6 +93,9 @@ void loop() {
     if (receivedData.indexOf("\"valve3\":\"off\"") != -1) digitalWrite(VALVE3, LOW);
     if (receivedData.indexOf("\"valve4\":\"on\"") != -1) digitalWrite(VALVE4, HIGH);
     if (receivedData.indexOf("\"valve4\":\"off\"") != -1) digitalWrite(VALVE4, LOW);
+  }
+    else{
+    Serial.print("no data from esp");
   }
 
   Serial.println(level1);
