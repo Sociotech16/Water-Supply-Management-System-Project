@@ -11,10 +11,8 @@ WiFiClient client;
 HTTPClient http;
 
 void setup() {
-  //Serial.begin(115200);
-
-  Serial.begin(9600);  // USB debug monitor
-  Serial2.begin(9600, SERIAL_8N1, 16, 17);  // RX=16, TX=17
+  Serial.begin(115200);  // USB debug monitor
+  Serial2.begin(115200, SERIAL_8N1, 16, 17);  // ESP32 TX → Mega RX, ESP32 RX → Mega TX
 
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
@@ -25,54 +23,44 @@ void setup() {
 }
 
 void loop() {
-//   // Receive sensor data from Arduino Mega
-//   if (Serial.available()) {
-//     String jsonStr = Serial.readStringUntil('\n');
-
-//     // Send sensor data to MongoDB via Node.js server
-//     http.begin(client, sensorUrl);
-//     http.addHeader("Content-Type", "application/json");
-//     http.POST(jsonStr);
-//     http.end();
-//   }
-
-  // Receive sensor data from Arduino Mega
+  // 🔹 Receive sensor data from Arduino Mega
   if (Serial2.available()) {
-    String jsonStr = Serial.readStringUntil('\n');
+    String jsonStr = Serial2.readStringUntil('\n');
+    
+    if (jsonStr.length() > 0) {
+      Serial.println("Received from Arduino Mega: " + jsonStr);
 
-    // Send sensor data to MongoDB via Node.js server
-    http.begin(client, sensorUrl);
-    http.addHeader("Content-Type", "application/json");
-    http.POST(jsonStr);
-    http.end();
+      // 🔹 Send sensor data to MongoDB via Node.js server
+      http.begin(client, sensorUrl);
+      http.addHeader("Content-Type", "application/json");
+      int httpResponseCode = http.POST(jsonStr);
+
+      if (httpResponseCode > 0) {
+        Serial.println("Sensor Data Sent Successfully!");
+      } else {
+        Serial.print("Error Sending Sensor Data: ");
+        Serial.println(httpResponseCode);
+      }
+      http.end();
+    }
+  } else {
+    Serial.println("❌ No sensor data from Mega");
   }
-   else{
-    Serial.print("no data from mega");
-  }
 
-  // // Fetch valve control commands from the React app
-  // http.begin(client, controlUrl);
-  // int httpResponseCode = http.GET();
-  // if (httpResponseCode > 0) {
-  //   String payload = http.getString();
-  //   Serial.println(payload);  // Forward control command to Arduino Mega
-  // }
-  // http.end();
+  delay(2000);
 
-
-  
-  // Fetch valve control commands from the React app
+  // 🔹 Fetch valve control commands from the Node.js server
   http.begin(client, controlUrl);
   int httpResponseCode = http.GET();
+  
   if (httpResponseCode > 0) {
     String payload = http.getString();
     Serial2.println(payload);  // Forward control command to Arduino Mega
+    Serial.println("Received Valve Command: " + payload);
+  } else {
+    Serial.println("❌ No data from server");
   }
-  else{
-    Serial.print("no data from server");
-  }
+  
   http.end();
-
-
   delay(5000);
 }
