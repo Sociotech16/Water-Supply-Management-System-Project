@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  background-color: #004080;
+  color: white;
+  padding: 20px 15px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sidebar-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background-color: #0066ff;
+}
+
+.main-content {
+  flex: 1;
+  padding: 25px 35px;
+  overflow-y: auto;
+}
+
+.sump-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 100px;
+  
+}
+
+.sump-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+.sump-label {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.page {
+  padding: 15px;
+}
