@@ -1,0 +1,19 @@
+.tank-level-display {
+    width: 35%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    
+}
+
+.tank-level-display .tank {
+    width: 100px;
+    height: 200px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    position: relative;
+    background-color: #031e46;
+}

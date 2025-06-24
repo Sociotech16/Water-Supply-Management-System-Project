@@ -1,15 +1,16 @@
 import React from "react";
 import SumpCircle from "./SumpCircle";
+import "./styles/TankLevelDisplay.css"; // Assuming you have a CSS file for styling
 
 export default function TankLevelDisplay({ sensorData, valveState, onToggle }) {
   const tankLabels = ["Main Sump", "Tank A", "Tank B"];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-4">
-      {tankLabels.map((label, index) => {
+    <div className="tank-level-display">
+      { tankLabels.map((label, index) => {
         const valveKey = `valve${index + 1}`;
         return (
-          <SumpCircle
+          <SumpCircle className="tank-circle"
             key={label}
             label={label}
             level={sensorData[index]?.level ?? 0}

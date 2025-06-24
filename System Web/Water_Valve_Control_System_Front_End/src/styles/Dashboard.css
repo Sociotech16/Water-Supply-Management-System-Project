@@ -1,0 +1,39 @@
+
+.dashboard-container {
+    margin:0;
+    width: 100%;
+    
+    border-radius: 10px;
+    margin: 2px;
+    padding: 2px;
+}
+.dash_h1{
+    margin: 0;
+    border-radius: 10px;
+    padding-top: 0;
+    padding-bottom: 5px;
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: white;
+    background-color: #01152a;
+}
+.valve-panel{
+    border: white 2px;
+    background-color: #01152a;
+    border-radius: 10px;
+
+}   
+.tank-level{
+    padding-top: 10px;
+    margin-top: 30px;
+    background-color: #01152a;
+    border-radius: 10px;
+}
+.water-level-chart{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    background-color: #01152a;
+    border-radius: 10px;
+}
