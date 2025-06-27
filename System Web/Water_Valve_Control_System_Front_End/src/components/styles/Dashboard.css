@@ -1,0 +1,149 @@
+
+.dashboard-container  {
+  margin: 0;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  min-width: 320px;
+  min-height: 100vh; 
+  width: 100%; 
+  background: linear-gradient(135deg, #1a1a1a, #001f3f);
+  color: rgba(255, 255, 255, 0.87);
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+
+
+
+
+
+.dash_h1 {
+  /* Make the main heading span across all grid columns */
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #4da6ff; /* A vibrant blue for the main title */
+  font-size: 3.5em; /* Larger font size for prominence */
+  line-height: 1.1;
+  margin-bottom: 1.5rem; /* Space below the heading */
+  /* Subtle glow effect for the title, enhancing the tech aesthetic */
+  text-shadow: 0 0 15px rgba(77, 166, 255, 0.7);
+  letter-spacing: 1px; /* Slightly increased letter spacing for readability */
+}
+
+/* Styling for the individual content panels within the dashboard */
+.valve-control-panel,
+.tank-level-display,
+.water-level-chart {
+  /* Slightly lighter semi-transparent dark background for better visual separation from dashboard-container */
+  background-color: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(0, 119, 255, 0.3); /* A subtle, slightly transparent blue border */
+  border-radius: 10px; /* Rounded corners for panels */
+  padding: 1.5rem; /* Internal padding for panel content */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for panels */
+  
+  display: flex; /* Use flexbox for internal layout of panels (if needed) */
+  flex-direction: column;
+  justify-content: space-between; /* Distribute space evenly if content fills vertically */
+}
+
+/* Specific minimum height for the chart to ensure it's visible */
+.water-level-chart {
+    min-height: 300px;
+}
+
+
+/* --- Responsive Adjustments --- */
+
+/* For screens up to 1024px (e.g., larger tablets, small laptops) */
+@media (max-width: 1024px) {
+  .dashboard-container {
+    /* Adjust grid columns to be slightly smaller minimums */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem; /* Slightly reduced gap */
+    padding: 2rem; /* Reduced padding */
+  }
+  .dash_h1 {
+    font-size: 3em; /* Smaller heading size */
+  }
+}
+
+/* For screens up to 768px (e.g., typical tablets, landscape mobile) */
+@media (max-width: 768px) {
+  .dashboard-container {
+    margin: 1rem auto; /* Less vertical margin */
+    padding: 1.5rem; /* Reduced padding */
+    border-radius: 0; /* Remove border-radius for full width on smaller screens */
+    gap: 1rem; /* Further reduced gap */
+  }
+  .dash_h1 {
+    font-size: 2.5em; /* Even smaller heading */
+    margin-bottom: 1rem; /* Less space below heading */
+  }
+  /* Panels also get reduced padding */
+  .valve-control-panel,
+  .tank-level-display,
+  .water-level-chart {
+    padding: 1rem;
+  }
+}
+
+/* For screens up to 480px (e.g., portrait mobile phones) */
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 1rem; /* Minimal padding */
+  }
+  .dash_h1 {
+    font-size: 2em; /* Smallest heading size */
+    text-shadow: 0 0 10px rgba(77, 166, 255, 0.6); /* Slightly less intense glow */
+  }
+}
+
+
+/* --- Light Mode Adjustments (Applies when user prefers light color scheme) --- */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547; /* Dark text for light mode */
+    /* Light mode background: Gradient from very light blue to pure white */
+    background: linear-gradient(135deg, #e0f2f7, #ffffff);
+  }
+
+  /* Adjust global button styles for light mode */
+  button {
+    background-color: #f0f8ff; /* Very light blue background for buttons */
+    color: #213547; /* Dark text on light buttons */
+    border-color: #add8e6; /* Light blue border */
+  }
+  button:hover {
+    background-color: #cceeff; /* Lighter blue on hover */
+    border-color: #007bff; /* Bright blue border on hover */
+    color: #213547; /* Keep text dark */
+  }
+  button:focus,
+  button:focus-visible {
+    outline-color: #007bff; /* Bright blue focus outline */
+  }
+
+  .dashboard-container {
+    /* Semi-transparent white background for the dashboard container in light mode */
+    background-color: rgba(255, 255, 255, 0.85);
+    /* Lighter shadow for light mode */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .dash_h1 {
+    color: #0056b3; /* Darker blue for headings in light mode */
+    text-shadow: none; /* Remove glow effect in light mode */
+  }
+
+  /* Panel styling for light mode */
+  .valve-control-panel,
+  .tank-level-display,
+  .water-level-chart {
+    /* Slightly darker semi-transparent light background for panels */
+    background-color: rgba(245, 245, 245, 0.8);
+    border: 1px solid rgba(0, 119, 255, 0.2); /* Subtle blue border */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Lighter shadow for panels */
+  }
+}
