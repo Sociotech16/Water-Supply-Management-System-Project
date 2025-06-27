@@ -2,7 +2,7 @@
 
 //SoftwareSerial espSerial(19, 18); // RX, TX
 
-#define TRIG1 6
+#define TRIG1 6                                                                                                                                                                                                                                                                                                       
 #define ECHO1 7
 #define TRIG2 8 
 #define ECHO2 9

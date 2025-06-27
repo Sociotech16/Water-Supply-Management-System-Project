@@ -11,8 +11,12 @@ WiFiClient client;
 HTTPClient http;
 
 void setup() {
-  Serial.begin(115200);  // USB debug monitor
-  Serial2.begin(115200, SERIAL_8N1, 16, 17);  // ESP32 TX → Mega RX, ESP32 RX → Mega TX
+  
+  Serial.begin(9600);  // USB debug monitor
+  Serial2.begin(9600, SERIAL_8N1, 16, 17);  // RX=16, TX=17
+
+  // Serial.begin(115200);  // USB debug monitor
+  // Serial2.begin(115200, SERIAL_8N1, 16, 17);  // ESP32 TX → Mega RX, ESP32 RX → Mega TX
 
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
