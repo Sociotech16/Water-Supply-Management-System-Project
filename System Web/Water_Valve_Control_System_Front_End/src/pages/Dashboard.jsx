@@ -3,6 +3,7 @@ import axios from "axios";
 import ValveControlPanel from "../components/ValveControlPanel";
 import TankLevelDisplay from "../components/TankLevelDisplay";
 import WaterLevelChart from "../components/WaterLevelChart";
+import "../styles/Dashboard.css"; // Assuming you have a CSS file for styling
 
 const Dashboard = () => {
   const [sensorData, setSensorData] = useState([]);
@@ -39,18 +40,24 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="space-y-6 p-4">
-      <h1 className="text-2xl font-bold">Water Management Dashboard</h1>
-
-      <ValveControlPanel valveState={valveState} onToggle={handleValveToggle} />
-
-      <TankLevelDisplay
+    <div className="dashboard-container">
+      <h1 className="dash_h1">Water Management Dashboard</h1>
+      <div className="valve-panel">
+         <ValveControlPanel valveState={valveState} onToggle={handleValveToggle} />
+      </div>
+     <div className="tank-level">
+       <TankLevelDisplay
         sensorData={sensorData}
         valveState={valveState}
         onToggle={handleValveToggle}
       />
 
+     </div>
+     <div className="water-level-chart">
       <WaterLevelChart />
+
+     </div>
+      
     </div>
   );
 };

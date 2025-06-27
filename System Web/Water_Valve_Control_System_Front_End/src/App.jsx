@@ -6,19 +6,26 @@ import Dashboard from './pages/Dashboard';
 import Statistics from './pages/Statistics';
 import Account from './pages/Account';
 
+
 export default function App() {
   return (
+    <div className="app">
     <Router>
       <div className="app-container">
         <Sidebar />
         <main className="main-content">
-          <Routes>
+          <div>
+            <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/statistics" element={<Statistics />} />
             <Route path="/account" element={<Account />} />
-          </Routes>
+            </Routes>
+
+          </div>
+          
         </main>
       </div>
     </Router>
+    </div>
   );
 }

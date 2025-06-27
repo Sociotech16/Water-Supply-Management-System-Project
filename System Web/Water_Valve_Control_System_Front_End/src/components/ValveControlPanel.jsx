@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../styles/ValveControlPanel.css"; // Assuming you have a CSS file for styling
 export default function ValveControlPanel({ valveState, onToggle }) {
   const valveNames = [
     { key: "valve1", label: "Feeder Valve to Tank A" },
@@ -11,9 +11,9 @@ export default function ValveControlPanel({ valveState, onToggle }) {
   return (
     <div className="p-4 bg-white shadow rounded-lg">
       <h2 className="text-lg font-bold mb-4">Valve Control Panel</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="valve-controls">
         {valveNames.map(({ key, label }) => (
-          <div key={key} className="flex items-center justify-between">
+          <div key={key} className="valve-control">
             <p>{label}</p>
             <label className="switch">
               <input
