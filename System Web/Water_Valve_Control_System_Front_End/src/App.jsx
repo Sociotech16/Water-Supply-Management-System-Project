@@ -16,9 +16,9 @@ export default function App() {
         <main className="main-content">
           <div>
             <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<Account />} />
             <Route path="/statistics" element={<Statistics />} />
-            <Route path="/account" element={<Account />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
 
           </div>
