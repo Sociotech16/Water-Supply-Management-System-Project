@@ -48,8 +48,6 @@ const Dashboard = () => {
      <div className="tank-level">
        <TankLevelDisplay
         sensorData={sensorData}
-        valveState={valveState}
-        onToggle={handleValveToggle}
       />
 
      </div>

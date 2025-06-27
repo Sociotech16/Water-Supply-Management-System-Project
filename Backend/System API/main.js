@@ -10,6 +10,7 @@ app.use(cors());
 const mongoUrl = "mongodb://localhost:27017";
 const dbName = "WaterManagement";  // Updated database name
 const collectionName = "SensorReadings";  // Updated collection name
+const automationRules = [];
 
 let valveState = { valve1: "off", valve2: "off", valve3: "off", valve4: "off" };
 
@@ -23,6 +24,33 @@ async function connectDB() {
 
 connectDB().then(db => {
     const sensorCollection = db.collection(collectionName);
+    
+
+    app.post("/automation_rules", async (req, res) => {
+      try {
+        const rules = req.body; // expect array
+        const db = await connectDB();
+        const col = db.collection("AutomationRules");
+    
+        await col.deleteMany({}); // Optional: clear old rules
+        await col.insertMany(rules);
+        res.send({ status: "Rules saved" });
+      } catch (error) {
+        res.status(500).send({ error: "Failed to save rules" });
+      }
+    });
+    
+    app.get("/automation_rules", async (req, res) => {
+      try {
+        const db = await connectDB();
+        const col = db.collection("AutomationRules");
+        const rules = await col.find().toArray();
+        res.send(rules);
+      } catch (error) {
+        res.status(500).send({ error: "Failed to fetch rules" });
+      }
+    });
+    
 
     // Store sensor data
     app.post("/sensor_data", async (req, res) => {

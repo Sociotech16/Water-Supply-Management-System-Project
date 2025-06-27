@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
 import Statistics from './pages/Statistics';
 import Account from './pages/Account';
+import Automation from './pages/Automation.jsx';
 
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
             <Route path="/" element={<Account />} />
             <Route path="/statistics" element={<Statistics />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/automation" element={<Automation />} />
             </Routes>
 
           </div>

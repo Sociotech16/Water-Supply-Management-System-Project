@@ -1,0 +1,81 @@
+/* General container styling */
+.automation-page {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafa;
+}
+
+/* Header */
+.automation-page h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Each automation rule box */
+.automation-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.automation-form:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Selects and inputs */
+.automation-form select,
+.automation-form input {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  min-width: 150px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.automation-form input:focus,
+.automation-form select:focus {
+  outline: none;
+  border-color: #0077cc;
+  box-shadow: 0 0 5px rgba(0, 119, 204, 0.3);
+}
+
+/* Buttons */
+button {
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #005fa3;
+  transform: translateY(-1px);
+}
+
+/* Add button separate styling */
+button:last-of-type {
+  background-color: #00aa55;
+}
+
+button:last-of-type:hover {
+  background-color: #008f47;
+}

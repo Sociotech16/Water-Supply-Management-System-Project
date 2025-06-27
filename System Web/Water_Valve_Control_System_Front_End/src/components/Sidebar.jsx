@@ -30,6 +30,11 @@ export default function Sidebar() {
             Dashboard
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/automation" className={({ isActive }) => (isActive ? 'active' : '')}>
+            Automation
+          </NavLink>
+        </li>
       </ul>
 
       </div>

@@ -44,13 +44,7 @@ export default function SumpCircle({ label, level, isOn, onToggle }) {
 
       <div className="sump-label">{label}</div>
 
-      <div className="sump-controller">
-        <label className="switch">
-          <input type="checkbox" checked={isOn} onChange={onToggle} />
-          <span className="slider round"></span>
-        </label>
-        <div className="status-label">{isOn ? 'ON' : 'OFF'}</div>
-      </div>
+      
     </div>
   );
 }
